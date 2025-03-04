@@ -1,0 +1,186 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url('https://c0.wallpaperflare.com/preview/942/914/511/two-barbers-chairs-in-front-of-mirrors-inside-room.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container for form */
+        .form-container {
+            background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+            backdrop-filter: blur(10px); /* Blur background effect */
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .input-box input::placeholder {
+            color: #ddd;
+        }
+
+        .input-box i {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .remember-forgot a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .remember-forgot input {
+            margin-right: 5px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #005bb5;
+        }
+
+        .register-link {
+            text-align: center;
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .register-link a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        #errorMessage {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: red;
+        }
+
+    </style>
+
+    <script>
+        // Hardcoded admin credentials (Only for client-side demonstration, not for production use)
+        const ADMIN_USERNAME = "admin";
+        const ADMIN_PASSWORD = "admin123";
+
+        function validateLogin(event) {
+            event.preventDefault();  // Prevent form submission
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check if credentials are correct
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                // Redirect to admin page if login is successful
+                window.location.href = "admin.html";
+            } else {
+                // Display an error message if login fails
+                document.getElementById("errorMessage").textContent = "Incorrect username or password!";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Form container with blur background -->
+    <div class="form-container">
+        <h2>Admin Login</h2>
+        <form onsubmit="validateLogin(event)">
+            <div class="input-box">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <i class='bx bxs-user'></i> <!-- Icon (add your own icon if needed) -->
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i> <!-- Icon (add your own icon if needed) -->
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember Me</label>
+               
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+           
+        </form>
+
+        <!-- Error message for incorrect login -->
+        <div id="errorMessage"></div>
+    </div>
+
+</body>
+</html>
+
+
+
+<div class="register-link">
+    <p>Don't have an account? <a href="register.html">Register</a></p>
+</div>

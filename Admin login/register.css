@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(https://res.cloudinary.com/conferences-and-exhibitions-pvt-ltd/image/upload/v1682247700/Review/2023/Apr/Surat/Affiniti-Salon---Image-1_tmqath.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+.wrapper {
+    width: 750px;
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(9px);
+    border-radius: 12px;
+    color : black;
+    padding: 40px 35px 55px;
+}
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wrapper .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.input-box .input-field {
+    position: relative;
+    width: 48%;
+    background: white;
+    margin: 13px 0;
+}
+.input-box .input-field input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(225, 225, 225, .2);
+    outline: none;
+    color: black;
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
+}
+.input-box .input-field input::placeholder {
+    color: black;
+}
+.input-box .input-field i{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.wrapper label {
+    display: inline-block;
+    font-size: 14.5px;
+    margin: 10px 0 23px;
+}
+.wrapper label input{
+    accent-color: #fff;
+    margin-right: 5px;
+}
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+.back-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #f0f0f0; /* Change as needed */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.back-btn:hover {
+    background-color: #e0e0e0; /* Change as needed */
+}
+.login-text a {
+    text-align: center;
+    color: #fff; /* Sets the text color to white */
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    color:#fafafa;
+    
+}
+.wrapper .login-text  {
+text-align: center;
+
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}

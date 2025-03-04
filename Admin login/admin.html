@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+        }
+        .header, .footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .header .user-menu {
+            cursor: pointer;
+        }
+        .sidebar {
+            width: 220px;
+            background-color: #34495e;
+            color: #ecf0f1;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px 15px;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background-color: #2c3e50;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .dashboard-widgets {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .widget {
+            background-color: #ffffff;
+            padding: 20px;
+            width: 24%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .table th, .table td {
+            padding: 15px;
+            border-bottom: 1px solid #eaeaea;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f9f9f9;
+        }
+        .table tr:hover {
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        button.reject {
+            background-color: #e74c3c;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button.reject:hover {
+            background-color: #c0392b;
+        }
+        .sidebar a.active {
+            background-color: #1abc9c;
+            color: #ffffff;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .main-content {
+            flex: 1;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1000;
+            color: #fff;
+        }
+        .notification.accept {
+            background-color: #2ecc71; /* Green for accept */
+        }
+        .notification.reject {
+            background-color: #e74c3c; /* Red for reject */
+        }
+        .status-icon {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Admin Dashboard</div>
+        <div class="user-menu">Welcome, Admin ▾</div>
+    </div>
+    
+    <div class="sidebar">
+        <a href="#" onclick="showSection('customer-sequence')">Customer Sequence</a>
+        <a href="#" onclick="showSection('feedback')">Feedback</a>
+    </div>
+    
+    <div class="main-content active" id="customer-sequence">
+        <h2>Customers Sequence</h2>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Customer Name</th>
+                <th>Services</th>
+                <th>Time</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>
+                    <span id="customer-001">Yash Purbhe</span>
+                    <span id="icon-001" class="status-icon"></span>
+                </td>
+                <td>Hair Cutting</td>
+                <td>8:30 pm</td>
+                <td>100/-</td>
+                <td>
+                    <button onclick="handleAction('Accept', 'Yash Purbhe', '001')">Accept</button>
+                    <button class="reject" onclick="handleAction('Reject', 'Yash Purbhe', '001')">Reject</button>
+                </td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>
+                    <span id="customer-002">Aditya Kokate</span>
+                    <span id="icon-002" class="status-icon"></span>
+                </td>
+                <td>Hair Cutting</td>
+                <td>8:50 pm</td>
+                <td>100/-</td>
+                <td>
+                    <button onclick="handleAction('Accept', 'Aditya Kokate', '002')">Accept</button>
+                    <button class="reject" onclick="handleAction('Reject', 'Aditya Kokate', '002')">Reject</button>
+                </td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>
+                    <span id="customer-003">Aditi Ghadge</span>
+                    <span id="icon-003" class="status-icon"></span>
+                </td>
+                <td>Facial</td>
+                <td>9:10 pm</td>
+                <td>500/-</td>
+                <td>
+                    <button onclick="handleAction('Accept', 'Aditi Ghadge', '003')">Accept</button>
+                    <button class="reject" onclick="handleAction('Reject', 'Aditi Ghadge', '003')">Reject</button>
+                </td>
+            </tr>
+            <tr>
+                <td>004</td>
+                <td>
+                    <span id="customer-004">Dipshree Vartak</span>
+                    <span id="icon-004" class="status-icon"></span>
+                </td>
+                <td>Spa</td>
+                <td>9:30 pm</td>
+                <td>2500/-</td>
+                <td>
+                    <button onclick="handleAction('Accept', 'Dipshree Vartak', '004')">Accept</button>
+                    <button class="reject" onclick="handleAction('Reject', 'Dipshree Vartak', '004')">Reject</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="main-content" id="feedback">
+        <h2>Feedback</h2>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Customer Name</th>
+                <th>Service Taken</th>
+                <th>Feedback</th>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>Yash Purbhe</td>
+                <td>Hair Cutting</td>
+                <td>"Great haircut! The stylist understood exactly what I wanted and delivered perfectly."</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Aditya Kokate</td>
+                <td>Hair Cutting</td>
+                <td>"Satisfied with the haircut. Quick and neat. Will visit again."</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Aditi Ghadge</td>
+                <td>Facial</td>
+                <td>"Loved the facial service. My skin feels fresh and rejuvenated. Great job!"</td>
+            </tr>
+            <tr>
+                <td>004</td>
+                <td>Dipshree Vartak</td>
+                <td>Spa</td>
+                <td>"The spa session was extremely relaxing and refreshing. Highly recommend!"</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        © 2024 ArtistiCutz. All Rights Reserved.
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script>
+        function showSection(sectionId) {
+            var sections = document.getElementsByClassName('main-content');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+            document.getElementById(sectionId).classList.add('active');
+
+            var links = document.querySelectorAll('.sidebar a');
+            links.forEach(link => link.classList.remove('active'));
+
+            event.target.classList.add('active');
+        }
+
+        function handleAction(action, customerName, customerId) {
+            var notification = document.getElementById("notification");
+            notification.innerHTML = `Appointment for ${customerName} has been ${action.toLowerCase()}ed.`;
+            notification.classList.remove("accept", "reject");
+            notification.classList.add(action.toLowerCase());
+            notification.style.display = "block";
+
+            // Update the icon based on action
+            var iconElement = document.getElementById("icon-" + customerId);
+            iconElement.innerHTML = action === 'Accept' ? '<i class="fas fa-check-circle" style="color: #2ecc71;"></i>' : '<i class="fas fa-times-circle" style="color: #e74c3c;"></i>';
+
+            setTimeout(function () {
+                notification.style.display = "none";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

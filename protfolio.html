@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.0.9/dist/css/glightbox.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        /* Professional Portfolio Styles */
+        .portfolio {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+        }
+        .portfolio .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .portfolio h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .portfolio p {
+            font-size: 16px;
+            color: #6c757d;
+        }
+        .portfolio .portfolio-filters {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .portfolio .portfolio-filters li {
+            cursor: pointer;
+            margin: 0 15px;
+            padding: 10px 20px;
+            font-weight: 600;
+            color: #495057;
+            background-color: #e9ecef;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .portfolio .portfolio-filters li.filter-active, 
+        .portfolio .portfolio-filters li:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .portfolio .portfolio-item {
+            position: relative;
+            overflow: hidden;
+        }
+        .portfolio .portfolio-item img {
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+        }
+        .portfolio .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        .portfolio .portfolio-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            color: #fff;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        .portfolio .portfolio-item:hover .portfolio-info {
+            opacity: 1;
+        }
+        .portfolio .portfolio-info h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .portfolio .portfolio-info p {
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+        .portfolio .glightbox {
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .portfolio .portfolio-item:hover .glightbox {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Portfolio</h2>
+          <p>Explore our creative work</p>
+        </div><!-- End Section Title -->
+  
+        <div class="container">
+          <!-- Portfolio Filters -->
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-haircut">Haircut</li>
+            <li data-filter=".filter-nails">Nails</li>
+            <li data-filter=".filter-spa">Spa</li>
+          </ul><!-- End Portfolio Filters -->
+  
+          <!-- Portfolio Container -->
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            <!-- Portfolio Items -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-haircut">
+                <img src="assets/IMGS/a10.jpeg" width="100%" class="img-fluid" alt="Haircut">
+                <div class="portfolio-info">
+                  <h4>Haircut</h4>
+                  <p>Professional haircuts to enhance your style</p>
+                  <a href="assets/IMGS/a10.jpeg" title="Haircut" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                </div>
+            </div><!-- End Portfolio Item -->
+  
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-spa">
+                <img src="assets/IMGS/spa3.jpeg" width="100%" class="img-fluid" alt="Spa">
+                <div class="portfolio-info">
+                  <h4>Spa and Facials</h4>
+                  <p>Relax and rejuvenate with our spa services</p>
+                  <a href="assets/IMGS/spa3.jpeg" title="Spa" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Repeat for other portfolio items -->
+          </div><!-- End Portfolio Container -->
+        </div>
+      </section><!-- /Portfolio Section -->
+
+      <!-- Scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/glightbox@3.0.9/dist/js/glightbox.min.js"></script>
+      <script>
+        const lightbox = GLightbox({
+            selector: '.glightbox'
+        });
+      </script>
+
+</body>
+</html>
