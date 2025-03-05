@@ -5,7 +5,7 @@
 ## Features
 - **User-friendly Interface**: Intuitive and responsive design for seamless navigation.
 - **Service Catalog**: Browse different salon services such as haircuts, styling, skincare, and more.
-- **Online Booking**: Schedule appointments at preferred time slots.
+- **Online Booking**: Schedule appointments at preferred time slots. 
 - **User Profiles**: Create and manage accounts for better service tracking.
 - **Reviews & Ratings**: Share and view feedback on services.
 - **Notifications**: Get reminders for upcoming appointments.
