@@ -17,6 +17,11 @@
 - **Authentication**: JWT-based secure authentication
 - **Deployment**: Hosted on cloud services like AWS, Firebase, or Heroku
 
+## Screenshots
+<img src="Screenshot 2025-03-05 121612.png" width="500"><img src="Screenshot 2025-03-05 121656.png" width="500">
+<img src="Screenshot 2025-03-05 121629.png" width="500"><img src="Screenshot 2025-03-05 121713.png" width="500">
+
+
 ## Usage
 1. Sign up or log in to access the platform.
 2. Browse available services and select a preferred salon or stylist.
